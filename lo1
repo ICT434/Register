@@ -1,0 +1,28 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card dashboard">
+    <h2 class="welcome">Hello, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+    <p class="muted">You are logged in successfully.</p>
+    <div class="actions">
+        <a class="btn-link primary" href="register.php">Create Another User</a>
+        <a class="btn-link ghost" href="logout.php">Logout</a>
+    </div>
+</main>
+</body>
+</html>
